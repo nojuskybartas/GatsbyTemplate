@@ -10,7 +10,25 @@ import React from "react";
 import styled from "styled-components/macro";
 import { theme } from "styles/theme";
 
-export const FeaturedRecipe = () => (
+export interface FeaturedRecipeProps {
+  title: string;
+  description: string;
+  prepTime: string;
+  mainIngredient: string;
+  authorName: string;
+  authorImage: string;
+  date: string;
+}
+
+export const FeaturedRecipe: React.FC<FeaturedRecipeProps> = ({
+  title,
+  description,
+  prepTime,
+  mainIngredient,
+  authorName,
+  authorImage,
+  date,
+}) => (
   <SectionWrapper>
     <FlexWrapper
       width="100%"
@@ -37,16 +55,13 @@ export const FeaturedRecipe = () => (
           fontSize={{ _: "fs32", desktop: "fs64" }}
           fontWeight="fw700"
         >
-          Spicy delicious chicken wings
+          {title}
         </Typography>
-        <Typography type="body16">
-          Lorem ipsum dolor sit amet, consectetuipisicing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqut enim ad minim
-        </Typography>
+        <Typography type="body16">{description}</Typography>
         <FlexWrapper py="s32">
           <InfoBox>
             <Image height="1.5rem" width="1.5rem" src="timer" alt="timer" />
-            30 Minutes
+            {prepTime}
           </InfoBox>
           <InfoBox>
             <Image
@@ -55,7 +70,7 @@ export const FeaturedRecipe = () => (
               src="forkKnife"
               alt="forkKnife"
             />
-            Chicken
+            {mainIngredient}
           </InfoBox>
         </FlexWrapper>
         <FlexWrapper
@@ -70,12 +85,12 @@ export const FeaturedRecipe = () => (
             <Image
               height="3.125rem"
               width="3.125rem"
-              src="ellipse"
-              alt="ellipse"
+              src={authorImage}
+              alt={authorImage}
             />
             <NameBox>
-              <Typography type="h3">John Smith</Typography>
-              <Typography type="body16">15 March 2022</Typography>
+              <Typography type="h3">{authorName}</Typography>
+              <Typography type="body16">{date}</Typography>
             </NameBox>
           </FlexWrapper>
           <ViewRecipesButton>
