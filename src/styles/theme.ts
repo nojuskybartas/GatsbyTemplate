@@ -1,9 +1,11 @@
 export type Colors = keyof typeof colors;
 
 const colors = {
-  primary: "#101326",
-  secondary: "#29C0CD",
-  accent: "#E34578",
+  primary: "#7F9CBC",
+  secondary: "#E6B8DC",
+  accent: "#FF7F64",
+  accentDark: "#b5838d",
+  neutral: "#FED5D9",
   white: "#ffffff",
   blue: "#e7fafe",
 };
@@ -26,7 +28,7 @@ export const theme = {
   padding: {
     p1: "5rem",
   },
-  breakpoints: ["24rem", "47rem", "80rem"] as unknown as Breakpoints,
+  breakpoints: ["24rem", "48rem", "80rem"] as unknown as Breakpoints,
   space: {
     s16: "1rem",
     s32: "2rem",
@@ -78,7 +80,14 @@ export const theme = {
       fontSizeMobile: "1.5rem",
       lineHeight: "2.625rem",
       lineHeightMobile: "2rem",
-      fontWeight: 600,
+      fontWeight: 400,
+    },
+    body16: {
+      fontSize: "1rem",
+      fontSizeMobile: "1rem",
+      lineHeight: "1.25rem",
+      lineHeightMobile: "1rem",
+      fontWeight: 400,
     },
   },
   zIndex: {

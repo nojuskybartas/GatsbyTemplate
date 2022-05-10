@@ -9,7 +9,7 @@ export interface ContentWrapperProps<T> extends BoxProps<T> {}
 export const ContentWrapper = styled(Box)<ContentWrapperProps<Theme>>`
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 58rem;
+  max-width: 90rem;
   @media ${tablet} {
     max-width: 100%;
   }
