@@ -14,6 +14,7 @@ import { tablet } from "styles/breakpoints";
 import styled from "styled-components/macro";
 import { Typography } from "components/typography/Typography";
 import { ContentWrapper } from "components/wrappers/ContentWrapper";
+import { SectionWrapper } from "components/wrappers/SectionWrapper";
 
 interface MenuItemProps {
   label: string;
@@ -126,6 +127,7 @@ const NavbarItems = styled.li<{ openDrawer: boolean }>`
   align-items: center;
 
   @media ${tablet} {
+    z-index: 10;
     position: fixed;
     right: 0;
     top: 0;
@@ -138,7 +140,7 @@ const NavbarItems = styled.li<{ openDrawer: boolean }>`
     justify-content: center;
     @supports (backdrop-filter: blur(7px)) {
       background-color: #3836362a;
-      backdrop-filter: blur(7px);
+      backdrop-filter: blur(10px);
     }
     @supports not (backdrop-filter: blur(7px)) {
       background-color: #a39e9e;
