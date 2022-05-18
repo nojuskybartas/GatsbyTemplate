@@ -1,4 +1,4 @@
-import { Image } from "components/Image";
+import { Image } from "components";
 import React from "react";
 
 export const Logo = () => (

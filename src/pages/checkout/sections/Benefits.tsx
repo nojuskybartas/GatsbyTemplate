@@ -55,7 +55,7 @@ export const Benefits = () => (
               flexDirection="column"
               marginY={{ _: "s16", ltablet: "s0" }}
             >
-              <Typography type="h6" fontWeight="bold" color="primary">
+              <Typography type="h6" fontWeight="bold" color="secondary">
                 {label}
               </Typography>
               <Typography>{description}</Typography>

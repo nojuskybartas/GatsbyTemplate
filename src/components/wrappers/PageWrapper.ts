@@ -13,7 +13,14 @@ export const PageWrapper = styled(FlexWrapper)<PageWrapperProps<Theme>>`
   /* height: 100vh; */
   /* overflow-y: auto; */
   flex-flow: column;
-  /* background-image: url(${backgroundImage}); */
-  background-color: ${theme.colors.secondary};
+  /* background-image: url(${backgroundImage});
+  background-color: ${theme.colors.secondary}; */
+  background: rgb(127, 156, 188);
+  background: linear-gradient(
+    180deg,
+    rgba(127, 156, 188, 1) 7%,
+    rgba(230, 184, 220, 1) 51%,
+    rgba(254, 213, 217, 1) 100%
+  );
   background-repeat: no-repeat;
 `;

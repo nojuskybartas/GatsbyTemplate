@@ -6,17 +6,17 @@ import {
   ContentWrapper,
 } from "components";
 import { navigate } from "gatsby";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { QUIZ_QUESTIONS } from "./questions";
 import { QuizPageContent } from "./sections/QuizPageContent";
-import { useSelector, useDispatch } from "react-redux";
-import { AppState, setQuizPage } from "state/quiz";
+import { useSelector } from "react-redux";
+import { AppState } from "state/quiz";
 
 const Quiz: React.FC = () => {
   const quizState = useSelector((state: AppState) => state.quiz);
 
   useEffect(() => {
-    if (quizState.complete) navigate("/");
+    if (quizState.complete) navigate("/checkout");
   }, []);
 
   return (

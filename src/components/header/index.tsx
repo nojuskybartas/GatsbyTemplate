@@ -1,71 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import {
-  Logo,
-  FlexWrapper,
-  Button,
-  BaseButton,
-  ButtonVariants,
-  Container,
-  Box,
-} from "components";
-import { useLocation } from "@reach/router";
-import { navigate } from "gatsby";
+import { Logo, FlexWrapper, BaseButton, Box } from "components";
 import { tablet } from "styles/breakpoints";
 import styled from "styled-components/macro";
-import { Typography } from "components/typography/Typography";
 import { ContentWrapper } from "components/wrappers/ContentWrapper";
-import { SectionWrapper } from "components/wrappers/SectionWrapper";
-
-interface MenuItemProps {
-  label: string;
-  link: string;
-  buttonVariant?: ButtonVariants;
-  hiddenInPages?: string[];
-}
-
-const MENU_ITEMS: MenuItemProps[] = [
-  {
-    label: "Home",
-    link: "/",
-  },
-  {
-    label: "About",
-    link: "/",
-  },
-  {
-    label: "FAQ",
-    link: "/",
-  },
-  {
-    label: "Privacy Policy",
-    link: "/",
-  },
-  {
-    label: "Start Now",
-    link: "/quiz",
-    buttonVariant: "accent",
-    hiddenInPages: ["/quiz"],
-  },
-];
-
-const MenuItems: React.FC = () => {
-  const location = useLocation();
-  return (
-    <>
-      {MENU_ITEMS.map(
-        ({ label, link, buttonVariant, hiddenInPages }) =>
-          (!hiddenInPages || !hiddenInPages.includes(location.pathname)) &&
-          (buttonVariant ? (
-            <Button variant={buttonVariant} onClick={() => navigate(link)}>
-              {label}
-            </Button>
-          ) : (
-            <NavbarItem onClick={() => navigate(link)}>{label}</NavbarItem>
-          ))
-      )}
-    </>
-  );
-};
+import { NavbarItems } from "./elements/NavbarItems";
 
 interface HeaderProps {
   showMenuItems?: boolean;
@@ -98,9 +36,9 @@ export const Header: React.FC<HeaderProps> = ({ showMenuItems = true }) => {
                 <HamburgerButtonLines />
               </HamburgerButtonWrapper>
 
-              <NavbarItems ref={navbarRef} openDrawer={isOpen}>
-                <MenuItems />
-              </NavbarItems>
+              <NavbarItemsWrapper ref={navbarRef} openDrawer={isOpen}>
+                <NavbarItems />
+              </NavbarItemsWrapper>
             </>
           )}
         </NavbarWrapper>
@@ -121,7 +59,7 @@ const NavbarWrapper = styled(FlexWrapper)<{ centerLogo: boolean }>`
   border-bottom-right-radius: 1rem;
 `;
 
-const NavbarItems = styled.li<{ openDrawer: boolean }>`
+const NavbarItemsWrapper = styled.li<{ openDrawer: boolean }>`
   display: flex;
   list-style: none;
   align-items: center;
@@ -151,25 +89,10 @@ const NavbarItems = styled.li<{ openDrawer: boolean }>`
   }
 `;
 
-const NavbarItem = styled.li`
-  width: fit-content;
-  white-space: nowrap;
-  padding: 0 1rem;
-  cursor: pointer;
-  align-self: center;
-
-  @media ${tablet} {
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-  }
-`;
-
 const HamburgerButtonWrapper = styled(BaseButton)`
   height: 2.5rem;
   width: 3rem;
   position: relative;
-
   display: none;
 
   @media ${tablet} {
@@ -184,7 +107,6 @@ const HamburgerButtonLines = styled.div`
   &,
   &:after,
   &:before {
-    /* Create lines */
     height: 2px;
     pointer-events: none;
     display: block;
@@ -195,12 +117,10 @@ const HamburgerButtonLines = styled.div`
   }
 
   &:after {
-    /* Move bottom line below center line */
     top: -0.7rem;
   }
 
   &:before {
-    /* Move top line on top of center line */
     top: 0.7rem;
   }
 `;

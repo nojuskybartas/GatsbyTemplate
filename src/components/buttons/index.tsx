@@ -35,7 +35,6 @@ export const Button = styled(BaseButton)<ButtonProps>(
       primary: {
         color: "white",
         bg: "primary",
-        width: "100%",
       },
       secondary: {
         color: "white",

@@ -36,7 +36,7 @@ export const QuizPagination: React.FC = () => {
             style={{ cursor: "pointer" }}
           />
 
-          <Typography fontWeight="fw700">
+          <Typography fontWeight="bold">
             {quizState.page + 1 + " of " + QUIZ_QUESTIONS.length}
           </Typography>
         </FlexWrapper>

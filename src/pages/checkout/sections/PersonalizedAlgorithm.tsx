@@ -30,7 +30,7 @@ const ALGORITHM_FEATURES = [
   },
 ];
 
-const PersonalizedAlgorithm = () => (
+export const PersonalizedAlgorithm = () => (
   <SectionWrapper>
     <ContentWrapper>
       <FloatingContainer>
@@ -66,5 +66,3 @@ const PersonalizedAlgorithm = () => (
     </ContentWrapper>
   </SectionWrapper>
 );
-
-export default PersonalizedAlgorithm;

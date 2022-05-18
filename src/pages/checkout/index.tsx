@@ -1,20 +1,16 @@
+import { Header, PageWrapper } from "components";
+import React from "react";
 import {
-  Container,
-  Header,
-  Image,
-  Typography,
-  PageWrapper,
-  SectionWrapper,
-  ContentWrapper,
-} from "components";
-import React, { useRef } from "react";
-import { Benefits, CatchPhrase, Features } from "./sections";
-import { CTA } from "./sections/CTA";
-import { FAQ } from "./sections/FAQ";
-import { HowItWorks } from "./sections/HowItWorks";
-import { MissionStatement } from "./sections/MissionStatement";
-import OurEdge from "./sections/OurEdge";
-import PersonalizedAlgorithm from "./sections/PersonalizedAlgorithm";
+  Benefits,
+  CatchPhrase,
+  CTA,
+  FAQ,
+  Features,
+  HowItWorks,
+  MissionStatement,
+  OurEdge,
+  PersonalizedAlgorithm,
+} from "./sections";
 
 const Checkout: React.FC = () => {
   return (

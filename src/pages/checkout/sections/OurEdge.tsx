@@ -17,7 +17,7 @@ const COMPETITOR_DIFFERENCES = [
   "Community of like-minded explorers",
 ];
 
-const OurEdge = () => (
+export const OurEdge = () => (
   <SectionWrapper>
     <ContentWrapper>
       <FloatingContainer>
@@ -55,5 +55,3 @@ const OurEdge = () => (
     </ContentWrapper>
   </SectionWrapper>
 );
-
-export default OurEdge;

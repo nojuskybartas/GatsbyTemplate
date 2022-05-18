@@ -16,7 +16,7 @@ export * from "./typography/Typography";
 export * from "./input/Input";
 
 //images
-export * from "./Image";
+export * from "./image/Image";
 
 //logo
 export * from "./logo/index";
@@ -26,7 +26,7 @@ export * from "./buttons/elements/BaseButton";
 export * from "./buttons/index";
 
 //header
-export * from "./header/index";
+export * from "./header";
 
 //pagination
 export * from "./pagination/index";

@@ -70,7 +70,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
     }
   };
   return (
-    <SectionWrapper minHeight="80vh">
+    <SectionWrapper>
       <QuizPageContentWrapper>
         <Typography type="h5">{question}</Typography>
         <Typography>{description}</Typography>
@@ -95,7 +95,11 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
         </QuizOptionsWrapper>
         {multiSelect &&
           buttons.map(({ label, buttonVariant }) => (
-            <Button variant={buttonVariant} onClick={handleNavigation}>
+            <Button
+              maxWidth="18rem"
+              variant={buttonVariant}
+              onClick={handleNavigation}
+            >
               {label}
             </Button>
           ))}
