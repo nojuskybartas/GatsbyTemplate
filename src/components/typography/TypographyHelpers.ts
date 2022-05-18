@@ -76,5 +76,15 @@ export const applyTextType = (type: TextType, theme: Theme) => {
           line-height: ${theme.typography.body16.lineHeightMobile};
         }
       `;
+    case "body22":
+      return css`
+        font-weight: ${theme.typography.body22.fontWeight};
+        font-size: ${theme.typography.body22.fontSize};
+        line-height: ${theme.typography.body22.lineHeight};
+        @media ${mobile} {
+          font-size: ${theme.typography.body22.fontSizeMobile};
+          line-height: ${theme.typography.body22.lineHeightMobile};
+        }
+      `;
   }
 };

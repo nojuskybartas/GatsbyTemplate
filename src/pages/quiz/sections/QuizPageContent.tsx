@@ -70,7 +70,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
     }
   };
   return (
-    <SectionWrapper>
+    <SectionWrapper minHeight="80vh">
       <QuizPageContentWrapper>
         <Typography type="h5">{question}</Typography>
         <Typography>{description}</Typography>

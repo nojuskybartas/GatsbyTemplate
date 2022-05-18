@@ -9,6 +9,7 @@ export type ButtonVariants =
   | "secondary"
   | "accent"
   | "clear"
+  | "inactive"
   | "quizPrimary"
   | "quizSecondary"
   | "quizSelected";
@@ -20,10 +21,9 @@ export interface ButtonProps extends DefaultButtonProps {
 export const Button = styled(BaseButton)<ButtonProps>(
   {
     boxShadow: "1px 2px 10px 1px #00000060",
-    borderRadius: "1rem",
+    borderRadius: "0.75rem",
     height: "2.5rem",
     minWidth: "9rem",
-    maxWidth: "18rem",
     ":hover": {
       boxShadow: "1px 2px 10px 0px #00000030",
     },
@@ -35,6 +35,7 @@ export const Button = styled(BaseButton)<ButtonProps>(
       primary: {
         color: "white",
         bg: "primary",
+        width: "100%",
       },
       secondary: {
         color: "white",
@@ -49,21 +50,27 @@ export const Button = styled(BaseButton)<ButtonProps>(
         bg: "transparent",
         boxShadow: "1px 2px 10px 0px #00000000",
       },
+      inactive: {
+        color: "black",
+      },
       quizPrimary: {
         color: "black",
         bg: "neutral",
+        maxWidth: "18rem",
         border: `2px solid transparent`,
         boxShadow: "1px 2px 10px 0px #00000010",
       },
       quizSecondary: {
         color: "black",
         bg: "neutral",
+        maxWidth: "18rem",
         border: `2px solid transparent`,
         boxShadow: "1px 2px 10px 0px #00000010",
       },
       quizSelected: {
         color: "black",
         bg: "neutral",
+        maxWidth: "18rem",
         border: `2px solid ${theme.colors.accent}`,
         boxShadow: "1px 2px 10px 0px #00000000",
       },

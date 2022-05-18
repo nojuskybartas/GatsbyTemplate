@@ -15,8 +15,8 @@ import React from "react";
 const Home: React.FC = () => (
   <PageWrapper>
     <Header showMenuItems={true} />
-    <ContentWrapper>
-      <SectionWrapper>
+    <SectionWrapper>
+      <ContentWrapper>
         <Typography
           type="h3"
           textAlign="end"
@@ -47,8 +47,8 @@ const Home: React.FC = () => (
             </FlexWrapper>
           </Box>
         </FlexWrapper>
-      </SectionWrapper>
-    </ContentWrapper>
+      </ContentWrapper>
+    </SectionWrapper>
   </PageWrapper>
 );
 

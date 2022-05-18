@@ -25,6 +25,7 @@ export type TextType =
   | "h5"
   | "h6"
   | "body16"
+  | "body22"
   | "caption12"
   | "span";
 
@@ -37,6 +38,7 @@ export enum TextTag {
   "h6" = "h6",
   "span" = "span",
   "body16" = "p",
+  "body22" = "p",
   "caption12" = "p",
 }
 

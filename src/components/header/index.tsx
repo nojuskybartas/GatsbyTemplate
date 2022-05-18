@@ -87,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({ showMenuItems = true }) => {
   }, []);
 
   return (
-    <Box backgroundColor="primary">
+    <Box backgroundColor="primary" position="sticky" top="0" zIndex="10">
       <ContentWrapper>
         <NavbarWrapper centerLogo={!showMenuItems}>
           <Logo />

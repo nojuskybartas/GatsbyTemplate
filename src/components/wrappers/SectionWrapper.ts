@@ -10,8 +10,8 @@ export interface SectionWrapperStyles {
 
 export const SectionWrapper = styled.section<SectionWrapperStyles>`
   position: relative;
-  padding: 4rem 5rem;
-  min-height: ${({ minHeight }) => minHeight || "80vh"};
+  padding: 4rem 2rem;
+  min-height: ${({ minHeight }) => minHeight || ""};
   background-color: ${({ backgroundColor, theme }) =>
     backgroundColor ? theme.colors[backgroundColor] : ""};
 
