@@ -9,6 +9,7 @@ const colors = {
   white: "#ffffff",
   blue: "#e7fafe",
   green: "#129c4a",
+  clear: "rgba(0,0,0,0)",
 };
 
 export const theme = {
@@ -33,6 +34,7 @@ export const theme = {
   },
   breakpoints: ["24rem", "48rem", "80rem"] as unknown as Breakpoints,
   space: {
+    auto: "auto",
     s0: "0",
     s4: "0.25rem",
     s6: "0.375rem",

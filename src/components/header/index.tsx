@@ -7,9 +7,13 @@ import { NavbarItems } from "./elements/NavbarItems";
 
 interface HeaderProps {
   showMenuItems?: boolean;
+  transparent?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ showMenuItems = true }) => {
+export const Header: React.FC<HeaderProps> = ({
+  showMenuItems = true,
+  transparent = false,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navbarRef = useRef<HTMLLIElement>(null);
 
@@ -25,7 +29,12 @@ export const Header: React.FC<HeaderProps> = ({ showMenuItems = true }) => {
   }, []);
 
   return (
-    <Box backgroundColor="primary" position="sticky" top="0" zIndex="10">
+    <Box
+      backgroundColor={transparent ? "clear" : "primary"}
+      position="sticky"
+      top="0"
+      zIndex="10"
+    >
       <ContentWrapper>
         <NavbarWrapper centerLogo={!showMenuItems}>
           <Logo />
@@ -59,7 +68,7 @@ const NavbarWrapper = styled(FlexWrapper)<{ centerLogo: boolean }>`
   border-bottom-right-radius: 1rem;
 `;
 
-const NavbarItemsWrapper = styled.li<{ openDrawer: boolean }>`
+const NavbarItemsWrapper = styled.ul<{ openDrawer: boolean }>`
   display: flex;
   list-style: none;
   align-items: center;

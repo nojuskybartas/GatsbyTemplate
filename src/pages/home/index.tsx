@@ -1,11 +1,11 @@
 import { Header, PageWrapper } from "components";
 import React from "react";
-import { Catchphrase } from "./sections";
+import { Main } from "./sections";
 
 const Home: React.FC = () => (
   <PageWrapper>
-    <Header showMenuItems={true} />
-    <Catchphrase />
+    <Header showMenuItems={true} transparent />
+    <Main />
   </PageWrapper>
 );
 

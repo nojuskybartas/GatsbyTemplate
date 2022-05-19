@@ -1,1 +1,1 @@
-export * from "./Catchphrase";
+export * from "./Main";

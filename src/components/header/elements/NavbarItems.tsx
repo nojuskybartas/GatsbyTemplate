@@ -2,8 +2,8 @@ import React from "react";
 import { useLocation } from "@reach/router";
 import { navigate } from "gatsby";
 import styled from "styled-components/macro";
-import { Button } from "../../buttons";
-import { tablet } from "../../../styles/breakpoints";
+import { Button } from "components";
+import { tablet } from "styles/breakpoints";
 import { MENU_ITEMS } from "../items";
 
 export const NavbarItems: React.FC = () => {
@@ -14,11 +14,15 @@ export const NavbarItems: React.FC = () => {
         ({ label, link, buttonVariant, hiddenInPages }) =>
           (!hiddenInPages || !hiddenInPages.includes(location.pathname)) &&
           (buttonVariant ? (
-            <Button variant={buttonVariant} onClick={() => navigate(link)}>
+            <Button
+              key={label}
+              variant={buttonVariant}
+              onClick={() => navigate(link)}
+            >
               {label}
             </Button>
           ) : (
-            <NavbarItemStyled onClick={() => navigate(link)}>
+            <NavbarItemStyled key={label} onClick={() => navigate(link)}>
               {label}
             </NavbarItemStyled>
           ))

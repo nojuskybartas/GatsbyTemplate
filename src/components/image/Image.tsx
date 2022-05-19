@@ -36,7 +36,7 @@ export const Image: React.FC<ImageProps> = ({
   ...rest
 }) => {
   return (
-    <LazyLoad height={200} offset={100} once>
+    <LazyLoad height={200} once>
       <picture onClick={onClick}>
         {mobile_src && <source media={mobile} srcSet={visuals[mobile_src]} />}
         <Img src={visuals[src]} alt={alt} {...rest} />
