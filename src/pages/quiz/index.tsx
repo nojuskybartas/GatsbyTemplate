@@ -9,7 +9,7 @@ import { navigate } from "gatsby";
 import React, { useEffect } from "react";
 import { QUIZ_QUESTIONS } from "./questions";
 import { QuizPageContent } from "./sections/QuizPageContent";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppState } from "state/quiz";
 
 const Quiz: React.FC = () => {

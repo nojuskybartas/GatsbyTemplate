@@ -19,6 +19,7 @@ import {
 } from "state/quiz";
 import { QUIZ_QUESTIONS } from "../questions";
 import { navigate } from "gatsby";
+import { postQuizAnswersAction } from "state/quiz/sagasActions";
 
 export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   questionName,
@@ -33,10 +34,15 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   const quizState = useSelector((state: AppState) => state.quiz);
   const dispatch = useDispatch();
 
+  const finishQuiz = () => {
+    dispatch(setQuizComplete(true));
+    dispatch(postQuizAnswersAction(quizState.answers));
+    navigate("/checkout");
+  };
+
   const handleNavigation = () => {
     if (quizState.page + 1 === QUIZ_QUESTIONS.length) {
-      dispatch(setQuizComplete(true));
-      navigate("/checkout");
+      finishQuiz();
     } else {
       dispatch(setQuizPage(quizState.page + 1));
     }
@@ -85,6 +91,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
 
             return (
               <Button
+                key={label}
                 variant={isSelected ? "quizSelected" : buttonVariant}
                 onClick={() => handleClick(value)}
               >
@@ -96,6 +103,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
         {multiSelect &&
           buttons.map(({ label, buttonVariant }) => (
             <Button
+              key={label}
               maxWidth="18rem"
               variant={buttonVariant}
               onClick={handleNavigation}

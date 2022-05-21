@@ -49,6 +49,7 @@ export const FAQ = () => {
           >
             {FAQs.map(({ question, answer }) => (
               <QuestionBox
+                key={question}
                 isOpen={openQuestion === question}
                 onClick={() => setOpenQuestion(question)}
               >

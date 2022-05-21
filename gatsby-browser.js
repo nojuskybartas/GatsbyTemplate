@@ -1,1 +1,2 @@
-export { wrapRootElement } from './src';
+import "firebase/firestore";
+export { wrapRootElement } from "./src";
