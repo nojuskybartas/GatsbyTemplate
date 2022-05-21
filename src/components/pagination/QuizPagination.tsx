@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Container } from "components/containers/Container";
 import { useSelector, useDispatch } from "react-redux";
-import { AppState, setQuizPage } from "state/quiz";
-import { QUIZ_QUESTIONS } from "pages/quiz/questions";
+import { setQuizPage } from "state/quiz";
+import { QUIZ_QUESTIONS } from "pages/quiz/elements/questions";
 import { navigate } from "gatsby";
 import styled from "styled-components/macro";
+import { selectQuizData } from "state/selectors";
 
 export const QuizPagination: React.FC = () => {
-  const quizState = useSelector((state: AppState) => state.quiz);
+  const quizState = useSelector(selectQuizData);
   const dispatch = useDispatch();
 
   const handleBackwardsClick = () => {

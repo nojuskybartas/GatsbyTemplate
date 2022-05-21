@@ -16,7 +16,7 @@ import {
   setQuizComplete,
   setQuizPage,
 } from "state/quiz";
-import { QUIZ_QUESTIONS } from "../questions";
+import { QUIZ_QUESTIONS } from "../elements/questions";
 import { navigate } from "gatsby";
 import { postQuizAnswersAction } from "state/quiz/sagasActions";
 import { AppState } from "state/types";

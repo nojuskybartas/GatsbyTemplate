@@ -6,7 +6,7 @@ export const BackgroundWorldmap = () => (
     position="absolute"
     width="100%"
     left="0"
-    top={{ _: "50%", ltablet: "20%" }}
+    top={{ _: "50%", ltablet: "0%" }}
     bottom="0"
     right="0"
     margin="auto"

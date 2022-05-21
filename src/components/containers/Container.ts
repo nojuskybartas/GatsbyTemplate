@@ -3,17 +3,15 @@ import { Theme } from "styles/theme";
 import {
   position,
   PositionProps,
-  backgroundColor,
-  BackgroundColorProps,
   compose,
+  color,
+  ColorProps,
 } from "styled-system";
 import { tablet } from "styles/breakpoints";
 
-const containerProps = compose(position, backgroundColor);
+const containerProps = compose(position, color);
 
-export interface ContainerProps<T>
-  extends PositionProps<T>,
-    BackgroundColorProps<T> {}
+export interface ContainerProps<T> extends PositionProps<T>, ColorProps<T> {}
 
 export const Container = styled.div<ContainerProps<Theme>>`
   margin: 0 auto;

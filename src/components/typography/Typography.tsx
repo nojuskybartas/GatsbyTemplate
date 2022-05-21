@@ -13,7 +13,7 @@ import {
   typography,
 } from "styled-system";
 
-import { Colors, Theme } from "styles/theme";
+import { Colors, Theme, theme } from "styles/theme";
 
 import { applyTextType } from "./TypographyHelpers";
 
@@ -78,12 +78,11 @@ export const Typography: React.FC<TextProps> = ({
 
 const Text = styled.p<TextProps>`
   padding: 0;
-  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-family: ${theme.fontFamily.primary};
 
-  ${({ type, theme }) =>
-    type && applyTextType(type as TextType, theme as Theme)};
+  ${({ type }) => type && applyTextType(type as TextType, theme)};
 
-  color: ${({ theme, color }) => (color ? theme.colors[color] : "#000000")};
+  color: ${({ color }) => (color ? theme.colors[color] : "#000000")};
 
   && {
     ${typographyProperties}

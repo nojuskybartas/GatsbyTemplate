@@ -15,6 +15,7 @@ export function* postMailingListSignUpSaga({
       url: "/save_email",
       data: payload,
     });
+    window?.gtag("event", "waitinglist_signup", payload);
   } catch (e) {
     const errResp = (e as AxiosError).response;
     if (errResp) {

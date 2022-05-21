@@ -7,13 +7,13 @@ import {
 } from "components";
 import { navigate } from "gatsby";
 import React, { useEffect } from "react";
-import { QUIZ_QUESTIONS } from "./questions";
+import { QUIZ_QUESTIONS } from "./elements/questions";
 import { QuizPageContent } from "./sections/QuizPageContent";
-import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "state/quiz";
+import { useSelector } from "react-redux";
+import { selectQuizData } from "state/selectors";
 
 const Quiz: React.FC = () => {
-  const quizState = useSelector((state: AppState) => state.quiz);
+  const quizState = useSelector(selectQuizData);
 
   useEffect(() => {
     if (quizState.complete) navigate("/checkout");
