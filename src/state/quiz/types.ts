@@ -16,5 +16,3 @@ export interface QuizState {
   answers: QuizAnswers;
   complete: boolean;
 }
-
-export type AppState = ReturnType<typeof rootReducer>;

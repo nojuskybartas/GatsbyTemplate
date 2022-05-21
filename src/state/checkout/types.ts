@@ -25,8 +25,15 @@ export interface CheckoutSections {
   }[];
 }
 
-export interface CheckoutState {
-  sections: CheckoutSections;
+export interface MailingListData {
+  email: string;
 }
 
-export type AppState = ReturnType<typeof rootReducer>;
+export interface CheckoutState {
+  // sections: CheckoutSections;
+  isSignedUp: boolean;
+  email: {
+    value: string;
+    isValid: boolean;
+  };
+}

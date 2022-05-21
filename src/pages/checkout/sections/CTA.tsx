@@ -10,27 +10,34 @@ import {
   Typography,
 } from "components";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  postMailingListSignUpAction,
+  setEmailIsValid,
+  setEmailValue,
+  setIsSignedUp,
+} from "state/checkout";
+import { selectCheckoutData } from "state/selectors";
 import { theme } from "styles/theme";
+import { validateEmail } from "utils/validations";
 import { FloatingContainer } from "../elements";
 
 export const CTA = () => {
-  const [emailState, setEmailState] = useState({ input: "", valid: false });
+  const checkoutState = useSelector(selectCheckoutData);
+  const dispatch = useDispatch();
 
   const handleEmailInput = (e: any) => {
     const value = (e.target as HTMLInputElement).value;
-    setEmailState((state) => ({ ...state, input: value }));
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-      setEmailState((state) => ({ ...state, valid: true }));
-    } else {
-      setEmailState((state) => ({ ...state, valid: false }));
-    }
+    dispatch(setEmailValue(value));
+    dispatch(setEmailIsValid(validateEmail(value)));
   };
 
   const handleSignUp = () => {
-    if (emailState.valid) {
-      // TODO:
-      // sign up to database
-      // disable button
+    if (checkoutState.email.isValid) {
+      dispatch(
+        postMailingListSignUpAction({ email: checkoutState.email.value })
+      );
+      dispatch(setIsSignedUp(true));
     }
   };
 
@@ -59,14 +66,17 @@ export const CTA = () => {
               onChange={(e) => {
                 handleEmailInput(e);
               }}
+              value={checkoutState.email.value}
             />
-            <Button
-              width="2rem"
-              variant={emailState.valid ? "accent" : "inactive"}
-              onClick={handleSignUp}
-            >
-              Sign up
-            </Button>
+            {!checkoutState.isSignedUp && (
+              <Button
+                width="2rem"
+                variant={checkoutState.email.isValid ? "accent" : "inactive"}
+                onClick={handleSignUp}
+              >
+                Sign up
+              </Button>
+            )}
           </FlexWrapper>
         </FloatingContainer>
       </ContentWrapper>

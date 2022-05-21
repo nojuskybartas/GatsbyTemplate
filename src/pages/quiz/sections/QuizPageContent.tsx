@@ -11,7 +11,6 @@ import styled from "styled-components/macro";
 import { QuizAnswerValue, QuizQuestionProps } from "typings/quizTypes";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  AppState,
   QuizAnswers,
   setQuizAnswers,
   setQuizComplete,
@@ -20,6 +19,8 @@ import {
 import { QUIZ_QUESTIONS } from "../questions";
 import { navigate } from "gatsby";
 import { postQuizAnswersAction } from "state/quiz/sagasActions";
+import { AppState } from "state/types";
+import { selectQuizData } from "state/selectors";
 
 export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   questionName,
@@ -31,7 +32,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   footer,
   buttons,
 }) => {
-  const quizState = useSelector((state: AppState) => state.quiz);
+  const quizState = useSelector(selectQuizData);
   const dispatch = useDispatch();
 
   const finishQuiz = () => {

@@ -1,14 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { QuizAnswers } from "./types";
+import { QuizAnswers, QuizState } from "./types";
 
-export const initialState = {
+export const initialState: QuizState = {
   page: 0,
   answers: {} as QuizAnswers,
   complete: false,
 };
 
 export const quizSlice = createSlice({
-  name: "user",
+  name: "quiz",
   initialState,
   reducers: {
     setQuizAnswers: (state, actions: PayloadAction<Partial<QuizAnswers>>) => {
