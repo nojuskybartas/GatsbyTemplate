@@ -14,7 +14,7 @@ import {
 
 const Checkout: React.FC = () => {
   return (
-    <PageWrapper>
+    <PageWrapper title="Summary">
       <Header showMenuItems={false} />
       <CatchPhrase />
       <Benefits />

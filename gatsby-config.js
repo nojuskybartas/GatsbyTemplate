@@ -2,14 +2,16 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: `april2`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Explored Life`,
+    siteUrl: `https://explored.life`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-anchor-links`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -78,6 +80,12 @@ module.exports = {
           // Defaults to https://www.googletagmanager.com
           // origin: "YOUR_SELF_HOSTED_ORIGIN",
         },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "src/assets/icons/favicon.png",
       },
     },
   ],

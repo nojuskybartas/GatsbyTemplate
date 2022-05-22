@@ -11,18 +11,23 @@ export const MENU_ITEMS: MenuItemProps[] = [
   {
     label: "Home",
     link: "/",
+    hiddenInPages: ["/"],
   },
   {
-    label: "About",
-    link: "/",
+    label: "Benefits",
+    link: "/checkout#Benefits",
+  },
+  {
+    label: "Algorithm",
+    link: "/checkout#PersonalizedAlgorithm",
   },
   {
     label: "FAQ",
-    link: "/",
+    link: "/checkout#FAQ",
   },
   {
-    label: "Privacy Policy",
-    link: "/",
+    label: "Sign Up Now",
+    link: "/checkout#CTA",
   },
   {
     label: "Start Now",

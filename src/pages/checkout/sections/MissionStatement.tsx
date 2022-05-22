@@ -10,7 +10,7 @@ import React from "react";
 import { FloatingContainer } from "../elements";
 
 export const MissionStatement = () => (
-  <SectionWrapper>
+  <SectionWrapper id="MissinoStatement">
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">

@@ -7,7 +7,7 @@ export const Main = () => (
     <BackgroundWorldmap />
     <FlexWrapper marginTop={{ ltablet: "s48" }}>
       <Catchphrase />
-      <ContentWrapper zIndex="5" display={{ _: "none", ltablet: "inline" }}>
+      <ContentWrapper zIndex="5" display={{ _: "none", desktop: "inline" }}>
         <Image src="tourismSupplies" alt="tourism" width="30rem" />
       </ContentWrapper>
     </FlexWrapper>

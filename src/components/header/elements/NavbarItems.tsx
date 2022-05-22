@@ -4,7 +4,8 @@ import { navigate } from "gatsby";
 import styled from "styled-components/macro";
 import { Button } from "components";
 import { tablet } from "styles/breakpoints";
-import { MENU_ITEMS } from "../items";
+import { MENU_ITEMS } from "./items";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export const NavbarItems: React.FC = () => {
   const location = useLocation();
@@ -14,16 +15,16 @@ export const NavbarItems: React.FC = () => {
         ({ label, link, buttonVariant, hiddenInPages }) =>
           (!hiddenInPages || !hiddenInPages.includes(location.pathname)) &&
           (buttonVariant ? (
-            <Button
-              key={label}
-              variant={buttonVariant}
-              onClick={() => navigate(link)}
-            >
-              {label}
+            <Button key={label} variant={buttonVariant}>
+              <AnchorLink to={link} title={label}>
+                {label}
+              </AnchorLink>
             </Button>
           ) : (
             <NavbarItemStyled key={label} onClick={() => navigate(link)}>
-              {label}
+              <AnchorLink to={link} title={label}>
+                {label}
+              </AnchorLink>
             </NavbarItemStyled>
           ))
       )}

@@ -31,7 +31,7 @@ const ALGORITHM_FEATURES = [
 ];
 
 export const PersonalizedAlgorithm = () => (
-  <SectionWrapper>
+  <SectionWrapper id="PersonalizedAlgorithm">
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">

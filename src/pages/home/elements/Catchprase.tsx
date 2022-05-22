@@ -14,7 +14,7 @@ export const Catchphrase = () => (
       <Typography
         type="h2"
         textAlign="end"
-        marginTop={{ _: "s0", ltablet: "s32" }}
+        marginTop={{ _: "s0", desktop: "s32" }}
       >
         <Typography type="span" fontWeight="bold">
           New way to travel

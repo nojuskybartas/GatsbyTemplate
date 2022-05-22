@@ -3,8 +3,8 @@ import React from "react";
 import { Main } from "./sections";
 
 const Home: React.FC = () => (
-  <PageWrapper>
-    <Header showMenuItems={true} transparent />
+  <PageWrapper title="Home">
+    <Header showMenuItems={true} />
     <Main />
   </PageWrapper>
 );

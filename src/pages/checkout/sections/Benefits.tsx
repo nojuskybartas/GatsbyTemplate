@@ -28,7 +28,7 @@ const BENEFITS = [
 ];
 
 export const Benefits = () => (
-  <SectionWrapper>
+  <SectionWrapper id="Benefits">
     <ContentWrapper>
       <FlexWrapper
         as={FloatingContainer}

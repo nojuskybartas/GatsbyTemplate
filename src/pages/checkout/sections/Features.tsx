@@ -18,7 +18,7 @@ const FEATURES = [
 ];
 
 export const Features = () => (
-  <SectionWrapper>
+  <SectionWrapper id="Features">
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">

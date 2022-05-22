@@ -16,7 +16,7 @@ const STEPS = [
 ];
 
 export const HowItWorks = () => (
-  <SectionWrapper>
+  <SectionWrapper id="HowItWorks">
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">

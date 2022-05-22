@@ -20,9 +20,9 @@ const Quiz: React.FC = () => {
   }, []);
 
   return (
-    <PageWrapper>
+    <PageWrapper title="Quiz">
       <Header showMenuItems={false} />
-      <FlexWrapper as={ContentWrapper} flex="1 1 auto" flexDirection="column">
+      <FlexWrapper flex="1 1 auto" flexDirection="column">
         <QuizPageContent {...QUIZ_QUESTIONS[quizState.page]} />
       </FlexWrapper>
       <QuizPagination />

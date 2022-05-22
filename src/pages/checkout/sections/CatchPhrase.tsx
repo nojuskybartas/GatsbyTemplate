@@ -7,7 +7,7 @@ import {
 import React from "react";
 
 export const CatchPhrase = () => (
-  <SectionWrapper>
+  <SectionWrapper id="CatchPhrase">
     <ContentWrapper textAlign="center">
       <Container>
         <Typography type="h4">Are you up for this?</Typography>

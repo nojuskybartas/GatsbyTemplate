@@ -15,7 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
   transparent = false,
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const navbarRef = useRef<HTMLLIElement>(null);
+  const navbarRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const closeDrawerOnClick = (e: MouseEvent | TouchEvent) => {
@@ -66,9 +66,12 @@ const NavbarWrapper = styled(FlexWrapper)<{ centerLogo: boolean }>`
   align-items: center;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+  transition: all 0.1s ease-out;
 `;
 
-const NavbarItemsWrapper = styled.ul<{ openDrawer: boolean }>`
+const NavbarItemsWrapper = styled.ul<{
+  openDrawer: boolean;
+}>`
   display: flex;
   list-style: none;
   align-items: center;
@@ -92,7 +95,7 @@ const NavbarItemsWrapper = styled.ul<{ openDrawer: boolean }>`
     @supports not (backdrop-filter: blur(7px)) {
       background-color: #a39e9e;
     }
-    transition: 0.2s ease-out;
+    transition: all 0.2s ease-out;
     transform: ${({ openDrawer }) =>
       openDrawer ? `translateX(0)` : `translateX(100%)`};
   }

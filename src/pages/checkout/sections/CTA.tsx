@@ -9,6 +9,7 @@ import {
   SectionWrapper,
   Typography,
 } from "components";
+import { navigate } from "gatsby";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -38,37 +39,41 @@ export const CTA = () => {
         postMailingListSignUpAction({ email: checkoutState.email.value })
       );
       dispatch(setIsSignedUp(true));
+      navigate("/success");
     }
   };
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="CTA">
       <ContentWrapper>
         <FloatingContainer>
           <Typography type="h5" textAlign="center">
-            Enter the waiting list now!
+            {!checkoutState.isSignedUp
+              ? "Enter the waiting list now!"
+              : "You've successfully signed up!"}
           </Typography>
-          <FlexWrapper
-            marginTop="s16"
-            flexDirection={{ _: "column", ltablet: "row" }}
-          >
-            <Input
-              type="email"
-              placeholder="your email"
-              width="100%"
-              height="2.5rem"
-              backgroundColor="secondary"
-              border={`1px solid ${theme.colors.primary}`}
-              borderRadius="br8"
-              padding="s12"
-              marginRight="s16"
-              marginBottom={{ _: "s16" }}
-              onChange={(e) => {
-                handleEmailInput(e);
-              }}
-              value={checkoutState.email.value}
-            />
-            {!checkoutState.isSignedUp && (
+          {!checkoutState.isSignedUp && (
+            <FlexWrapper
+              marginTop="s16"
+              flexDirection={{ _: "column", ltablet: "row" }}
+            >
+              <Input
+                type="email"
+                placeholder="your email"
+                width="100%"
+                height="2.5rem"
+                backgroundColor="secondary"
+                border={`1px solid ${theme.colors.primary}`}
+                borderRadius="br8"
+                padding="s12"
+                marginRight="s16"
+                marginBottom={{ _: "s16" }}
+                onChange={(e) => {
+                  handleEmailInput(e);
+                }}
+                value={checkoutState.email.value}
+              />
+
               <Button
                 width="2rem"
                 variant={checkoutState.email.isValid ? "accent" : "inactive"}
@@ -76,8 +81,8 @@ export const CTA = () => {
               >
                 Sign up
               </Button>
-            )}
-          </FlexWrapper>
+            </FlexWrapper>
+          )}
         </FloatingContainer>
       </ContentWrapper>
     </SectionWrapper>

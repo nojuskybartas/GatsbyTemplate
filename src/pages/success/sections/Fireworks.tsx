@@ -34,7 +34,7 @@ export const Fireworks = () => (
         🎉Hooorayyy🎉
       </Typography>
       <Typography type="h6" marginTop="s48">
-        You're registered
+        You're registered!
       </Typography>
     </ContentWrapper>
   </SectionWrapper>

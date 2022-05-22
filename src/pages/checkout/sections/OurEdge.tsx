@@ -18,7 +18,7 @@ const COMPETITOR_DIFFERENCES = [
 ];
 
 export const OurEdge = () => (
-  <SectionWrapper>
+  <SectionWrapper id="OurEdge">
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">

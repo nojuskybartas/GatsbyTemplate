@@ -35,7 +35,7 @@ export const FAQ = () => {
   const [openQuestion, setOpenQuestion] = useState(FAQs[0].question);
 
   return (
-    <SectionWrapper>
+    <SectionWrapper id="FAQ">
       <ContentWrapper>
         <FloatingContainer>
           <Typography type="h5" textAlign="center">

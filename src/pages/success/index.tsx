@@ -3,7 +3,7 @@ import React from "react";
 import { Fireworks, Footer } from "./sections";
 
 const Success = () => (
-  <PageWrapper>
+  <PageWrapper title="Success">
     <Header showMenuItems={false} />
     <Fireworks />
     <Footer />
