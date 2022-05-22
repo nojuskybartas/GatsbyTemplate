@@ -4,6 +4,7 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
   {
     questionName: "importantCriteria",
     question: "When travelling, what matters to you most?",
+    multiSelect: true,
     options: [
       {
         label: "Location",
@@ -21,8 +22,13 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         buttonVariant: "quizPrimary",
       },
       {
-        label: "Intensity",
+        label: "Intensity (adventures)",
         value: "intensity",
+        buttonVariant: "quizPrimary",
+      },
+      {
+        label: "Social aspect (company)",
+        value: "social",
         buttonVariant: "quizPrimary",
       },
       {
@@ -31,22 +37,30 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         buttonVariant: "quizPrimary",
       },
     ],
+    buttons: [
+      {
+        label: "Continue",
+        buttonVariant: "accent",
+      },
+    ],
   },
   {
     questionName: "preferPlanning",
     question: "Do you prefer to plan your travels?",
     options: [
       {
+        label: "I'd happily trust someone else to do it",
+        value: false,
+        buttonVariant: "quizSecondary",
+      },
+      {
         label: "Yes",
         value: true,
         buttonVariant: "quizPrimary",
       },
-      {
-        label: "I don't need to",
-        value: false,
-        buttonVariant: "quizSecondary",
-      },
     ],
+    description:
+      "This includes the full planning of accomodation, transport, activities and culinary experiences.",
   },
   {
     questionName: "wantShortFrequentTravel",
@@ -64,6 +78,8 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         buttonVariant: "quizSecondary",
       },
     ],
+    description:
+      "Imagine you could go travel to a new country, eg. every second weekend... Wouldn't that be wonderful?",
   },
   {
     questionName: "favouriteFlightCompanies",
@@ -80,6 +96,36 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         value: "wizzair",
         buttonVariant: "quizSecondary",
       },
+      {
+        label: "EasyJet",
+        value: "easyjet",
+        buttonVariant: "quizSecondary",
+      },
+      {
+        label: "Transavia",
+        value: "transavia",
+        buttonVariant: "quizSecondary",
+      },
+      {
+        label: "Lufthansa",
+        value: "lufthansa",
+        buttonVariant: "quizSecondary",
+      },
+      {
+        label: "Austrian Airlines",
+        value: "austrian",
+        buttonVariant: "quizSecondary",
+      },
+      {
+        label: "Swiss Airlines",
+        value: "swiss",
+        buttonVariant: "quizSecondary",
+      },
+      {
+        label: "KLM",
+        value: "klm",
+        buttonVariant: "quizSecondary",
+      },
     ],
     buttons: [
       {
@@ -87,18 +133,21 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         buttonVariant: "accent",
       },
     ],
+    footer:
+      "We want to find the most-liked airlines, so that we can offer our customers the best experience possible - start to finish.",
   },
   {
     questionName: "wantPersonalizedPlacesToStay",
-    question: "Do you want personalized places to stay?",
+    question:
+      "Would you like to have someone pick you places to stay, for you?",
     options: [
       {
-        label: "Yes",
+        label: "Yes!",
         value: true,
         buttonVariant: "quizPrimary",
       },
       {
-        label: "No",
+        label: "Not too important",
         value: false,
         buttonVariant: "quizSecondary",
       },
@@ -106,15 +155,16 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
   },
   {
     questionName: "wantPersonalizedAmazingActivities",
-    question: "Do you want personalized amazing activities?",
+    question:
+      "Would you like to be suggested a personalized list of activities/experiences to do for every trip?",
     options: [
       {
-        label: "Yes",
+        label: "Yes!",
         value: true,
         buttonVariant: "quizPrimary",
       },
       {
-        label: "No",
+        label: "Not too important",
         value: false,
         buttonVariant: "quizSecondary",
       },
@@ -122,15 +172,16 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
   },
   {
     questionName: "wantDifferentCultures",
-    question: "Do you want to experience different tasty cultures?",
+    question:
+      "Do you prefer to travel to places you've already been to, or explore new ones?",
     options: [
       {
-        label: "Yes",
+        label: "New",
         value: true,
         buttonVariant: "quizPrimary",
       },
       {
-        label: "No",
+        label: "Doesn't really matter where",
         value: false,
         buttonVariant: "quizSecondary",
       },
@@ -147,10 +198,12 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         buttonVariant: "quizPrimary",
       },
       {
-        label: "No",
+        label: "Not too important",
         value: false,
         buttonVariant: "quizSecondary",
       },
     ],
+    footer:
+      "We want to bring a community of adventurous & spontaneous travellers together, so that we can explore the wonders of this world together.",
   },
 ];

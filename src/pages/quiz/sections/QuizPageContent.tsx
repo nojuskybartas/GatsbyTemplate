@@ -5,6 +5,7 @@ import {
   Button,
   Box,
   FlexWrapper,
+  Image,
 } from "components";
 import React from "react";
 import styled from "styled-components/macro";
@@ -76,11 +77,13 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
       handleNavigation();
     }
   };
+
   return (
     <SectionWrapper>
       <QuizPageContentWrapper>
         <Typography type="h5">{question}</Typography>
         <Typography>{description}</Typography>
+        {picture && <Image src={picture} alt={picture} />}
         <QuizOptionsWrapper>
           {options?.map(({ label, value, buttonVariant }) => {
             const selectedAnswers = quizState.answers[questionName];
@@ -112,7 +115,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
               {label}
             </Button>
           ))}
-        <Typography>{footer}</Typography>
+        <Typography marginTop="s48">{footer}</Typography>
       </QuizPageContentWrapper>
     </SectionWrapper>
   );
@@ -135,6 +138,6 @@ const QuizOptionsWrapper = styled(ContentWrapper)`
   display: flex;
   flex-direction: column;
   * {
-    margin: 0.5rem;
+    margin: 0.4rem;
   }
 `;
