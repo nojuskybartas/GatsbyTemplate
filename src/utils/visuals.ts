@@ -6,6 +6,7 @@ import personLookingIllustration from "assets/images/personLookingIllustration.p
 import travelVignettes from "assets/images/travelVignettes.png";
 import hexagonWorldmap from "assets/images/hexagonWorldmap.png";
 import tourismSupplies from "assets/images/tourismSupplies.png";
+import image404 from "assets/images/404.png";
 
 export type Visuals = keyof typeof visuals;
 export const visuals: Record<string, string> = {
@@ -17,4 +18,5 @@ export const visuals: Record<string, string> = {
   travelVignettes,
   hexagonWorldmap,
   tourismSupplies,
+  image404,
 };
