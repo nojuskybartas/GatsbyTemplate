@@ -4,6 +4,11 @@ import { tablet } from "styles/breakpoints";
 import styled from "styled-components/macro";
 import { ContentWrapper } from "components/wrappers/ContentWrapper";
 import { NavbarItems } from "./elements/NavbarItems";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAlignJustify,
+  faAlignRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface HeaderProps {
   showMenuItems?: boolean;
@@ -16,10 +21,12 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const navbarRef = useRef<HTMLUListElement>(null);
+  const burgerIconRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const closeDrawerOnClick = (e: MouseEvent | TouchEvent) => {
-      if (navbarRef.current && !navbarRef.current.contains(e.target as Node)) {
+      if (burgerIconRef?.current?.contains(e.target as Node)) return;
+      if (!navbarRef?.current?.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -41,9 +48,17 @@ export const Header: React.FC<HeaderProps> = ({
 
           {showMenuItems && (
             <>
-              <HamburgerButtonWrapper onClick={() => setIsOpen(!isOpen)}>
-                <HamburgerButtonLines />
-              </HamburgerButtonWrapper>
+              <Box
+                display={{ _: "block", ltablet: "none" }}
+                zIndex="11"
+                ref={burgerIconRef}
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <FontAwesomeIcon
+                  icon={isOpen ? faAlignRight : faAlignJustify}
+                  size="2x"
+                />
+              </Box>
 
               <NavbarItemsWrapper ref={navbarRef} openDrawer={isOpen}>
                 <NavbarItems />
@@ -77,7 +92,7 @@ const NavbarItemsWrapper = styled.ul<{
   align-items: center;
 
   @media ${tablet} {
-    z-index: 10;
+    /* z-index: 10; */
     position: fixed;
     right: 0;
     top: 0;
@@ -98,41 +113,5 @@ const NavbarItemsWrapper = styled.ul<{
     transition: all 0.2s ease-out;
     transform: ${({ openDrawer }) =>
       openDrawer ? `translateX(0)` : `translateX(100%)`};
-  }
-`;
-
-const HamburgerButtonWrapper = styled(BaseButton)`
-  height: 2.5rem;
-  width: 3rem;
-  position: relative;
-  display: none;
-
-  @media ${tablet} {
-    display: block;
-  }
-`;
-
-const HamburgerButtonLines = styled.div`
-  top: 50%;
-  margin-top: -0.125em;
-
-  &,
-  &:after,
-  &:before {
-    height: 2px;
-    pointer-events: none;
-    display: block;
-    content: "";
-    width: 2.5rem;
-    background-color: black;
-    position: absolute;
-  }
-
-  &:after {
-    top: -0.7rem;
-  }
-
-  &:before {
-    top: 0.7rem;
   }
 `;

@@ -20,10 +20,14 @@ export const quizSlice = createSlice({
       }
     },
     setQuizPage: (state, actions: PayloadAction<number>) => {
-      state.page = actions.payload;
+      if (actions.payload) {
+        state.page = actions.payload;
+      }
     },
     setQuizComplete: (state, actions: PayloadAction<boolean>) => {
-      state.complete = actions.payload;
+      if (actions.payload) {
+        state.complete = actions.payload;
+      }
     },
   },
 });

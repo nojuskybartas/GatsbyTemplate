@@ -5,9 +5,7 @@ export * from "./wrappers/ContentWrapper";
 export * from "./wrappers/FlexWrapper";
 export * from "./wrappers/SectionWrapper";
 export * from "./wrappers/PageWrapper";
-
-//containers
-export * from "./containers/Container";
+export * from "./wrappers/Container";
 
 //texts
 export * from "./typography/Typography";

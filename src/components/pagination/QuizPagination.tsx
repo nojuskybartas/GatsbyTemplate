@@ -1,8 +1,7 @@
-import { FlexWrapper, Box, Typography } from "components";
-import React, { useState } from "react";
+import React from "react";
+import { FlexWrapper, Box, Typography, Container } from "components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { Container } from "components/containers/Container";
 import { useSelector, useDispatch } from "react-redux";
 import { setQuizPage } from "state/quiz";
 import { QUIZ_QUESTIONS } from "pages/quiz/elements/questions";

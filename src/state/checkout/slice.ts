@@ -14,13 +14,19 @@ export const checkoutSlice = createSlice({
   initialState,
   reducers: {
     setIsSignedUp: (state, actions: PayloadAction<boolean>) => {
-      state.isSignedUp = actions.payload;
+      if (actions.payload) {
+        state.isSignedUp = actions.payload;
+      }
     },
     setEmailValue: (state, actions: PayloadAction<string>) => {
-      state.email.value = actions.payload;
+      if (actions.payload) {
+        state.email.value = actions.payload;
+      }
     },
     setEmailIsValid: (state, actions: PayloadAction<boolean>) => {
-      state.email.isValid = actions.payload;
+      if (actions.payload) {
+        state.email.isValid = actions.payload;
+      }
     },
   },
 });
