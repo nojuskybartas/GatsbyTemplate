@@ -12,6 +12,7 @@ export function* postQuizAnswersSaga({ payload }: PayloadAction<QuizAnswers>) {
       url: "/save_answers",
       data: payload,
     });
+    window?.gtag("event", "complete_quiz", payload);
   } catch (e) {
     const errResp = (e as AxiosError).response;
     if (errResp) {

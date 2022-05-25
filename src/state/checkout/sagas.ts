@@ -1,7 +1,8 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { AxiosError, AxiosResponse } from "axios";
+import { navigate } from "gatsby";
 import axios from "lib/axios";
-import { takeEvery, put } from "redux-saga/effects";
+import { takeEvery, put, call, delay } from "redux-saga/effects";
 import { postMailingListSignUpAction } from "./sagasActions";
 import { setIsSignedUp } from "./slice";
 import { MailingListData } from "./types";
@@ -15,13 +16,15 @@ export function* postMailingListSignUpSaga({
       url: "/save_email",
       data: payload,
     });
-    window?.gtag("event", "waitinglist_signup", payload);
+    yield put(setIsSignedUp(true));
+    // yield call(forwardTo, "/success");
   } catch (e) {
     const errResp = (e as AxiosError).response;
-    if (errResp) {
-      console.log(errResp);
-      yield put(setIsSignedUp(false));
-    }
+    yield put(setIsSignedUp(false));
+    // for (let i = 0; i < 5; i++) {
+    //   yield delay(1000);
+    //   yield put(postMailingListSignUpAction(payload));
+    // }
   }
 }
 

@@ -3,8 +3,7 @@ export type Colors = keyof typeof colors;
 const colors = {
   primary: "#7F9CBC",
   secondary: "#E6B8DC",
-  accent: "#FF7F64",
-  accentDark: "#b5838d",
+  accent: "#f75a39",
   neutral: "#FED5D9",
   white: "#ffffff",
   blue: "#e7fafe",

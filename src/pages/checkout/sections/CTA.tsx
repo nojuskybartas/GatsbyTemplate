@@ -10,13 +10,12 @@ import {
   Typography,
 } from "components";
 import { navigate } from "gatsby";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   postMailingListSignUpAction,
   setEmailIsValid,
   setEmailValue,
-  setIsSignedUp,
 } from "state/checkout";
 import { selectCheckoutData } from "state/selectors";
 import { theme } from "styles/theme";
@@ -38,7 +37,6 @@ export const CTA = () => {
       dispatch(
         postMailingListSignUpAction({ email: checkoutState.email.value })
       );
-      dispatch(setIsSignedUp(true));
       navigate("/success");
     }
   };

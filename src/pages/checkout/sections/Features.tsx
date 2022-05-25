@@ -1,6 +1,5 @@
 import {
   Box,
-  Container,
   ContentWrapper,
   FlexWrapper,
   SectionWrapper,
@@ -22,11 +21,7 @@ export const Features = () => (
     <ContentWrapper>
       <FloatingContainer>
         <Typography type="h5" textAlign="center">
-          Your{" "}
-          <Typography type="span" color="accent">
-            personal
-          </Typography>{" "}
-          travel agent in your pocket.
+          Your personal travel agent in your pocket.
         </Typography>
         <FlexWrapper as="ul" flexDirection="column" marginTop="s16">
           {FEATURES.map((label) => (
