@@ -20,6 +20,7 @@ export interface ButtonProps extends DefaultButtonProps {
 
 export const Button = styled(BaseButton)<ButtonProps>(
   {
+    position: "relative",
     boxShadow: "1px 2px 10px 1px #00000060",
     borderRadius: "0.75rem",
     height: "2.5rem",

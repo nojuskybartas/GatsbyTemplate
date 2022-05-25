@@ -20,9 +20,7 @@ export const quizSlice = createSlice({
       }
     },
     setQuizPage: (state, actions: PayloadAction<number>) => {
-      if (actions.payload) {
-        state.page = actions.payload;
-      }
+      state.page = actions.payload;
     },
     setQuizComplete: (state, actions: PayloadAction<boolean>) => {
       if (actions.payload) {

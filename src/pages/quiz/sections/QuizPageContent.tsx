@@ -3,25 +3,18 @@ import {
   SectionWrapper,
   Typography,
   Button,
-  Box,
-  FlexWrapper,
   Image,
 } from "components";
 import React from "react";
 import styled from "styled-components/macro";
 import { QuizAnswerValue, QuizQuestionProps } from "typings/quizTypes";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  QuizAnswers,
-  setQuizAnswers,
-  setQuizComplete,
-  setQuizPage,
-} from "state/quiz";
+import { setQuizAnswers, setQuizComplete, setQuizPage } from "state/quiz";
 import { QUIZ_QUESTIONS } from "../elements/questions";
 import { navigate } from "gatsby";
 import { postQuizAnswersAction } from "state/quiz/sagasActions";
-import { AppState } from "state/types";
 import { selectQuizData } from "state/selectors";
+import { OptionExplanation } from "../elements/OptionExplanation";
 
 export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   questionName,
@@ -85,7 +78,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
         <Typography>{description}</Typography>
         {picture && <Image src={picture} alt={picture} />}
         <QuizOptionsWrapper>
-          {options?.map(({ label, value, buttonVariant }) => {
+          {options?.map(({ label, value, buttonVariant, explanation }) => {
             const selectedAnswers = quizState.answers[questionName];
             const isSelected =
               (multiSelect &&
@@ -100,6 +93,7 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
                 onClick={() => handleClick(value)}
               >
                 {label}
+                <OptionExplanation explanation={explanation} />
               </Button>
             );
           })}

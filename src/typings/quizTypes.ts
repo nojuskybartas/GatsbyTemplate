@@ -1,6 +1,13 @@
 import { ButtonVariants } from "components";
 import { QuizAnswers } from "state/quiz";
 
+export interface QuizOptionProps {
+  label: string;
+  value: QuizAnswerValue;
+  buttonVariant: ButtonVariants;
+  explanation?: string;
+}
+
 type QuizCommonProps = {
   question?: string;
   description?: string;
@@ -12,11 +19,7 @@ type QuizCommonProps = {
 type QuizVariantProps =
   | {
       multiSelect: true;
-      options: {
-        label: string;
-        value: QuizAnswerValue;
-        buttonVariant: ButtonVariants;
-      }[];
+      options: QuizOptionProps[];
       buttons: {
         label: string;
         buttonVariant: ButtonVariants;
@@ -24,11 +27,7 @@ type QuizVariantProps =
     }
   | {
       multiSelect?: false;
-      options?: {
-        label: string;
-        value: QuizAnswerValue;
-        buttonVariant: ButtonVariants;
-      }[];
+      options: QuizOptionProps[];
       buttons?: null;
     };
 

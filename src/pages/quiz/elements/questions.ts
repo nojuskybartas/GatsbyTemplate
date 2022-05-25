@@ -25,16 +25,20 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
         label: "Intensity (adventures)",
         value: "intensity",
         buttonVariant: "quizPrimary",
+        explanation: "I like adventurous, filled with action experiences.",
       },
       {
         label: "Social aspect (company)",
         value: "social",
         buttonVariant: "quizPrimary",
+        explanation: "I care more about who I travel with, than where I go",
       },
       {
-        label: "I want it to be unique",
+        label: "Uniqueness",
         value: "uniqueness",
         buttonVariant: "quizPrimary",
+        explanation:
+          "When I travel, I seek to go to a different place than I've been to before, or at least a different hotel",
       },
     ],
     buttons: [
@@ -49,14 +53,16 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
     question: "Do you prefer to plan your travels?",
     options: [
       {
-        label: "I'd happily trust someone else to do it",
-        value: false,
-        buttonVariant: "quizSecondary",
-      },
-      {
         label: "Yes",
         value: true,
         buttonVariant: "quizPrimary",
+      },
+      {
+        label: "Not really",
+        value: false,
+        buttonVariant: "quizSecondary",
+        explanation:
+          "I'd happily trust someone else to do it, if they proved to be good at it",
       },
     ],
     description:
@@ -204,6 +210,6 @@ export const QUIZ_QUESTIONS: QuizQuestionProps[] = [
       },
     ],
     footer:
-      "We want to bring a community of adventurous & spontaneous travellers together, so that we can explore the wonders of this world together.",
+      "We want to bring a community of adventurous & spontaneous travellers together, so that we can explore the wonders of this world with each other.",
   },
 ];

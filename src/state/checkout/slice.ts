@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CheckoutState } from "./types";
 import { navigate } from "gatsby";
+import { isTestingEnvironment } from "../../utils/jest";
 
 export const initialState: CheckoutState = {
   isSignedUp: false,
@@ -17,8 +18,8 @@ export const checkoutSlice = createSlice({
     setIsSignedUp: (state, actions: PayloadAction<boolean>) => {
       if (actions.payload) {
         state.isSignedUp = actions.payload;
-        if (actions.payload === true) {
-          window?.gtag("event", "waitinglist_signup", {});
+        if (!isTestingEnvironment() && actions.payload === true) {
+          window.gtag("event", "waitinglist_signup", {});
         }
       }
     },
