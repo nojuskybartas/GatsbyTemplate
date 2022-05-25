@@ -6,6 +6,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> &
   BoxProps<Theme> & {
     label?: string;
     errorMessage?: string;
+    onChange?: (e?: Event) => void;
   };
 
 export const Input: React.FC<InputProps> = ({

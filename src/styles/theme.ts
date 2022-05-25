@@ -1,11 +1,14 @@
 export type Colors = keyof typeof colors;
 
 const colors = {
-  primary: "#101326",
-  secondary: "#29C0CD",
-  accent: "#E34578",
+  primary: "#7F9CBC",
+  secondary: "#E6B8DC",
+  accent: "#f75a39",
+  neutral: "#FED5D9",
   white: "#ffffff",
   blue: "#e7fafe",
+  green: "#129c4a",
+  clear: "rgba(0,0,0,0)",
 };
 
 export const theme = {
@@ -17,8 +20,10 @@ export const theme = {
     fs64: "4rem",
   },
   fontWeights: {
-    fw700: 700,
-    fw600: 600,
+    light: 300,
+    normal: 400,
+    semibold: 600,
+    bold: 700,
   },
   lineHeight: {
     lh: "1rem",
@@ -26,13 +31,26 @@ export const theme = {
   padding: {
     p1: "5rem",
   },
-  breakpoints: ["24rem", "47rem", "80rem"] as unknown as Breakpoints,
+  breakpoints: ["24rem", "48rem", "80rem"] as unknown as Breakpoints,
   space: {
+    auto: "auto",
+    s0: "0",
+    s4: "0.25rem",
+    s6: "0.375rem",
+    s8: "0.5rem",
+    s10: "0.625rem",
+    s12: "0.75rem",
     s16: "1rem",
     s32: "2rem",
     s48: "3rem",
   },
   radii: {
+    br0: "0",
+    br4: "0.25rem",
+    br6: "0.375rem",
+    br8: "0.5rem",
+    br10: "0.625rem",
+    br12: "0.75rem",
     br16: "1rem",
     br32: "2rem",
     br48: "3rem",
@@ -78,7 +96,21 @@ export const theme = {
       fontSizeMobile: "1.5rem",
       lineHeight: "2.625rem",
       lineHeightMobile: "2rem",
-      fontWeight: 600,
+      fontWeight: 400,
+    },
+    body16: {
+      fontSize: "1rem",
+      fontSizeMobile: "1rem",
+      lineHeight: "1.25rem",
+      lineHeightMobile: "1rem",
+      fontWeight: 400,
+    },
+    body22: {
+      fontSize: "1.375rem",
+      fontSizeMobile: "1.25rem",
+      lineHeight: "1.25rem",
+      lineHeightMobile: "1rem",
+      fontWeight: 400,
     },
   },
   zIndex: {

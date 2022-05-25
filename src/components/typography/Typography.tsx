@@ -13,18 +13,32 @@ import {
   typography,
 } from "styled-system";
 
-import { Colors, Theme } from "styles/theme";
+import { Colors, Theme, theme } from "styles/theme";
 
 import { applyTextType } from "./TypographyHelpers";
 
-export type TextType = "h1" | "h2" | "h3" | "body16" | "caption12" | "span";
+export type TextType =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "body16"
+  | "body22"
+  | "caption12"
+  | "span";
 
 export enum TextTag {
   "h1" = "h1",
   "h2" = "h2",
   "h3" = "h3",
+  "h4" = "h4",
+  "h5" = "h5",
+  "h6" = "h6",
   "span" = "span",
   "body16" = "p",
+  "body22" = "p",
   "caption12" = "p",
 }
 
@@ -64,11 +78,11 @@ export const Typography: React.FC<TextProps> = ({
 
 const Text = styled.p<TextProps>`
   padding: 0;
+  font-family: ${theme.fontFamily.primary};
 
-  ${({ type, theme }) =>
-    type && applyTextType(type as TextType, theme as Theme)};
+  ${({ type }) => type && applyTextType(type as TextType, theme)};
 
-  color: ${({ theme, color }) => (color ? theme.colors[color] : "#000000")};
+  color: ${({ color }) => (color ? theme.colors[color] : "#000000")};
 
   && {
     ${typographyProperties}
