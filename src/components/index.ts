@@ -28,3 +28,6 @@ export * from "./header";
 
 //pagination
 export * from "./pagination/index";
+
+//loading
+export * from "./loading/index";

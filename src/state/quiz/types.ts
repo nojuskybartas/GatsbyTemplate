@@ -15,4 +15,5 @@ export interface QuizState {
   page: number;
   answers: QuizAnswers;
   complete: boolean;
+  posted: "loading" | "success" | "fail" | null;
 }

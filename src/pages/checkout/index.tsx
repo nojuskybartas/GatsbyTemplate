@@ -1,5 +1,7 @@
-import { Header, PageWrapper } from "components";
+import { Header, LoadingOverlay, PageWrapper } from "components";
 import React from "react";
+import { useAppSelector } from "state";
+import { selectCheckoutData } from "state/selectors";
 import {
   Benefits,
   CatchPhrase,
@@ -13,8 +15,10 @@ import {
 } from "./sections";
 
 const Checkout: React.FC = () => {
+  const checkoutState = useAppSelector(selectCheckoutData);
   return (
     <PageWrapper title="Summary">
+      <LoadingOverlay isLoading={checkoutState.email.posted === "loading"} />
       <Header showMenuItems={false} />
       <CatchPhrase />
       <Benefits />

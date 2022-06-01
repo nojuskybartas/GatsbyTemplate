@@ -8,13 +8,13 @@ import {
 import React from "react";
 import styled from "styled-components/macro";
 import { QuizAnswerValue, QuizQuestionProps } from "typings/quizTypes";
-import { useSelector, useDispatch } from "react-redux";
-import { setQuizAnswers, setQuizComplete, setQuizPage } from "state/quiz";
+import { useSelector } from "react-redux";
+import { postQuizAnswers, setQuizAnswers, setQuizPage } from "state/quiz";
 import { QUIZ_QUESTIONS } from "../elements/questions";
 import { navigate } from "gatsby";
-import { postQuizAnswersAction } from "state/quiz/sagasActions";
 import { selectQuizData } from "state/selectors";
 import { OptionExplanation } from "../elements/OptionExplanation";
+import { useAppDispatch } from "state";
 
 export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   questionName,
@@ -27,11 +27,10 @@ export const QuizPageContent: React.FC<QuizQuestionProps> = ({
   buttons,
 }) => {
   const quizState = useSelector(selectQuizData);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const finishQuiz = () => {
-    dispatch(setQuizComplete(true));
-    dispatch(postQuizAnswersAction(quizState.answers));
+    dispatch(postQuizAnswers(quizState.answers));
     navigate("/checkout");
   };
 

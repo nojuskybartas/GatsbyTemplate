@@ -3,21 +3,13 @@ import {
   initialState,
   setEmailIsValid,
   setEmailValue,
-  setIsSignedUp,
 } from "../checkout";
 
 describe("Checkout State Reducers", () => {
   it("should return initial state", () => {
-    expect(checkoutSlice.reducer(undefined, setIsSignedUp)).toEqual(
+    expect(checkoutSlice.reducer(undefined, setEmailValue)).toEqual(
       initialState
     );
-  });
-
-  it("updates email signed up state correctly", () => {
-    expect(checkoutSlice.reducer(initialState, setIsSignedUp(true))).toEqual({
-      ...initialState,
-      isSignedUp: true,
-    });
   });
 
   it("updates email value state correctly", () => {
