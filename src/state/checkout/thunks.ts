@@ -14,8 +14,8 @@ export const postMailingListSignUp = createAsyncThunk(
         url: "/save_email",
         data: { email: email },
       });
-      window?.gtag("event", "waitinglist_signup", {});
       navigate("/success");
+      window?.gtag("event", "waitinglist_signup", {});
     } catch (e) {
       // TODO: retry this action.
       const errResp = (e as AxiosError).response;
