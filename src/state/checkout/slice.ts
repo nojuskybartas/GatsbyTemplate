@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CheckoutState } from "./types";
-import { navigate } from "gatsby";
-import { isTestingEnvironment } from "../../utils/jest";
+import { postMailingListSignUp } from "./thunks";
 
 export const initialState: CheckoutState = {
   isSignedUp: false,
   email: {
     value: "",
     isValid: false,
+    posted: null,
   },
 };
 
@@ -15,26 +15,26 @@ export const checkoutSlice = createSlice({
   name: "checkout",
   initialState,
   reducers: {
-    setIsSignedUp: (state, actions: PayloadAction<boolean>) => {
-      if (actions.payload) {
-        state.isSignedUp = actions.payload;
-        if (!isTestingEnvironment() && actions.payload === true) {
-          window.gtag("event", "waitinglist_signup", {});
-        }
-      }
-    },
     setEmailValue: (state, actions: PayloadAction<string>) => {
-      if (actions.payload) {
-        state.email.value = actions.payload;
-      }
+      state.email.value = actions.payload || "";
     },
     setEmailIsValid: (state, actions: PayloadAction<boolean>) => {
-      if (actions.payload) {
-        state.email.isValid = actions.payload;
-      }
+      state.email.isValid = actions.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(postMailingListSignUp.fulfilled, (state) => {
+      state.email.posted = "success";
+      state.isSignedUp = true;
+    });
+    builder.addCase(postMailingListSignUp.pending, (state) => {
+      state.email.posted = "loading";
+    });
+    builder.addCase(postMailingListSignUp.rejected, (state) => {
+      state.email.posted = "fail";
+      state.isSignedUp = false;
+    });
   },
 });
 
-export const { setIsSignedUp, setEmailValue, setEmailIsValid } =
-  checkoutSlice.actions;
+export const { setEmailValue, setEmailIsValid } = checkoutSlice.actions;
